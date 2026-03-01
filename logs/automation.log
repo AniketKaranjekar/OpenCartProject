@@ -1,0 +1,4 @@
+15:01:08.078 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Starting TC001_AccountRegistrationTest***** 
+15:01:08.298 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Click on my account***** 
+15:01:08.798 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Click on register***** 
+15:01:10.933 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Finished TC001_AccountRegistrationTest***** 
