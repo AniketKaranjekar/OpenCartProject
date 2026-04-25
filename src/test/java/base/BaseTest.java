@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import factory.DriverFactory;
@@ -19,7 +20,7 @@ public class BaseTest {
 
     @BeforeClass
     @Parameters({ "browser" })
-    public void setUp(String browser) throws IOException {
+    public void setUp(@Optional("chrome") String browser) throws IOException {
         logger = LogManager.getLogger(this.getClass());
         driver = DriverFactory.initDriver(browser);
     }
