@@ -1,0 +1,21 @@
+13:23:14.583 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\LNV-106\Desktop\MY_Workspace\Opencart\testng.xml
+
+13:23:16.840 [main] INFO  tests.RegistrationTest - *****Starting RegistrationTest*****
+13:23:16.928 [main] INFO  tests.RegistrationTest - Click on my account
+13:23:17.268 [main] INFO  tests.RegistrationTest - Click on register
+13:23:18.730 [main] INFO  tests.RegistrationTest - *****Finished RegistrationTest*****
+13:23:20.505 [main] INFO  tests.LoginTest - *****Starting LoginTest*****
+13:23:21.825 [main] INFO  tests.LoginTest - *****Finished LoginTest*****
+13:23:23.953 [main] INFO  tests.SearchProductTest - *****Starting SearchProductTest*****
+13:23:24.408 [main] INFO  tests.SearchProductTest - *****Ending SearchProductTest*****
+13:23:26.260 [main] INFO  tests.AddToCartTest - *****Starting AddToCartTest*****
+13:23:26.873 [main] INFO  tests.AddToCartTest - *****Ending AddToCartTest*****
+13:23:28.694 [main] INFO  tests.WishListTest - *****Starting WishListTest*****
+13:23:31.799 [main] INFO  tests.ShoppingCartTest - *****Starting ShoppingCartTest*****
+13:23:34.956 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+13:23:36.591 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****
+13:23:36.594 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+13:23:57.157 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****
+13:23:57.163 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+13:24:17.689 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****

@@ -9,10 +9,88 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">21,357</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">75,717</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testCases.TC006_ShoppingCart</td><td><a href="#m0">cart</a></td><td rowspan="1">1772297434467</td><td rowspan="1">2424</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">tests.ShoppingCartTest</td><td><a href="#m0">cart</a></td><td rowspan="1">1777099383229</td><td rowspan="1">3628</td></tr><tr class="failedodd"><td rowspan="1">tests.WishListTest</td><td><a href="#m1">wishList</a></td><td rowspan="1">1777099379292</td><td rowspan="1">1990</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">tests.AddToCartTest</td><td><a href="#m2">addToCart</a></td><td rowspan="1">1777099376833</td><td rowspan="1">662</td></tr><tr class="passedodd"><td rowspan="3">tests.LoginDDTTest</td><td><a href="#m3">verify_loginDDT</a></td><td rowspan="3">1777099388982</td><td rowspan="3">2656</td></tr><tr class="passedodd"><td><a href="#m4">verify_loginDDT</a></td></tr><tr class="passedodd"><td><a href="#m5">verify_loginDDT</a></td></tr><tr class="passedeven"><td rowspan="1">tests.LoginTest</td><td><a href="#m6">login</a></td><td rowspan="1">1777099370676</td><td rowspan="1">2198</td></tr><tr class="passedodd"><td rowspan="1">tests.RegistrationTest</td><td><a href="#m7">accountRegister</a></td><td rowspan="1">1777099365130</td><td rowspan="1">3625</td></tr><tr class="passedeven"><td rowspan="1">tests.SearchProductTest</td><td><a href="#m8">search</a></td><td rowspan="1">1777099374627</td><td rowspan="1">458</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">testCases.TC006_ShoppingCart#cart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">tests.ShoppingCartTest#cart</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Shopping cart test failed due to exception: element click intercepted: Element &lt;span class=&quot;hidden-xs hidden-sm hidden-md&quot;&gt;...&lt;/span&gt; is not clickable at point (1193, 7). Other element would receive the click: &lt;div id=&quot;top-links&quot; class=&quot;nav pull-right&quot;&gt;...&lt;/div&gt;
+  (Session info: MicrosoftEdge=147.0.3912.72)
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.22&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [2c679a09677e3dcf0257ee2a83f64773, clickElement {id=f.09A705A56044BE8455EB34DF00212D69.d.B933D433DE932394B38C2E714BCB1956.e.117}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 147.0.3912.72, fedcm:accounts: true, goog:processID: 17768, ms:edgeOptions: {debuggerAddress: localhost:53243}, msedge: {msedgedriverVersion: 147.0.3912.72 (d4380ba2b9dc..., userDataDir: C:\Users\LNV-106\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53243/devtoo..., se:cdpVersion: 147.0.3912.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (2c679a09677e3dcf0257ee2a83f64773)] -&gt; xpath: //span[normalize-space()=&apos;Shopping Cart&apos;]]
+Session ID: 2c679a09677e3dcf0257ee2a83f64773
+	at tests.ShoppingCartTest.cart(ShoppingCartTest.java:49)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;hidden-xs hidden-sm hidden-md&quot;&gt;...&lt;/span&gt; is not clickable at point (1193, 7). Other element would receive the click: &lt;div id=&quot;top-links&quot; class=&quot;nav pull-right&quot;&gt;...&lt;/div&gt;
+  (Session info: MicrosoftEdge=147.0.3912.72)
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.22&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [2c679a09677e3dcf0257ee2a83f64773, clickElement {id=f.09A705A56044BE8455EB34DF00212D69.d.B933D433DE932394B38C2E714BCB1956.e.117}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 147.0.3912.72, fedcm:accounts: true, goog:processID: 17768, ms:edgeOptions: {debuggerAddress: localhost:53243}, msedge: {msedgedriverVersion: 147.0.3912.72 (d4380ba2b9dc..., userDataDir: C:\Users\LNV-106\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53243/devtoo..., se:cdpVersion: 147.0.3912.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (2c679a09677e3dcf0257ee2a83f64773)] -&gt; xpath: //span[normalize-space()=&apos;Shopping Cart&apos;]]
+Session ID: 2c679a09677e3dcf0257ee2a83f64773
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy31.click(Unknown Source)
+	at pages.SearchPage.clickShoppingCart(SearchPage.java:44)
+	at tests.ShoppingCartTest.cart(ShoppingCartTest.java:42)
+	... 28 more
+... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">tests.WishListTest#wishList</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Wish list test failed due to exception: stale element reference: stale element not found
+  (Session info: MicrosoftEdge=147.0.3912.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.22&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [b70a8318f778fa3a5970b1e4744e13bc, sendKeysToElement {value=[Ljava.lang.CharSequence;@5f96f6a2, id=f.4A860D3741F909278B368098D2ACCF24.d.526275F65729D27EEF8341B8A4BA3204.e.78}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 147.0.3912.72, fedcm:accounts: true, goog:processID: 17120, ms:edgeOptions: {debuggerAddress: localhost:57341}, msedge: {msedgedriverVersion: 147.0.3912.72 (d4380ba2b9dc..., userDataDir: C:\Users\LNV-106\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57341/devtoo..., se:cdpVersion: 147.0.3912.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (b70a8318f778fa3a5970b1e4744e13bc)] -&gt; xpath: //input[@placeholder=&apos;Search&apos;]]
+Session ID: b70a8318f778fa3a5970b1e4744e13bc
+	at tests.WishListTest.wishList(WishListTest.java:52)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: MicrosoftEdge=147.0.3912.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: &apos;4.40.0&apos;, revision: &apos;b3333f1&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.22&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [b70a8318f778fa3a5970b1e4744e13bc, sendKeysToElement {value=[Ljava.lang.CharSequence;@5f96f6a2, id=f.4A860D3741F909278B368098D2ACCF24.d.526275F65729D27EEF8341B8A4BA3204.e.78}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 147.0.3912.72, fedcm:accounts: true, goog:processID: 17120, ms:edgeOptions: {debuggerAddress: localhost:57341}, msedge: {msedgedriverVersion: 147.0.3912.72 (d4380ba2b9dc..., userDataDir: C:\Users\LNV-106\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57341/devtoo..., se:cdpVersion: 147.0.3912.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[EdgeDriver: MicrosoftEdge on windows (b70a8318f778fa3a5970b1e4744e13bc)] -&gt; xpath: //input[@placeholder=&apos;Search&apos;]]
+Session ID: b70a8318f778fa3a5970b1e4744e13bc
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:223)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:110)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy31.sendKeys(Unknown Source)
+	at pages.HomePage.txtSearchField(HomePage.java:42)
+	at tests.WishListTest.wishList(WishListTest.java:33)
+	... 28 more
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">tests.AddToCartTest#addToCart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">tests.LoginDDTTest#verify_loginDDT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>karanjekaraniket@gmail.com</td><td>Pass@123</td><td>Valid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">tests.LoginDDTTest#verify_loginDDT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>invalid_email@test.com</td><td>Pass@123</td><td>Invalid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">tests.LoginDDTTest#verify_loginDDT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>karanjekaraniket@gmail.com</td><td>wrongPassword123</td><td>Invalid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">tests.LoginTest#login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">tests.RegistrationTest#accountRegister</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">tests.SearchProductTest#search</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

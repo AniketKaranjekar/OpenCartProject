@@ -1,4 +1,61 @@
-15:01:08.078 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Starting TC001_AccountRegistrationTest***** 
-15:01:08.298 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Click on my account***** 
-15:01:08.798 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Click on register***** 
-15:01:10.933 [main] INFO  testCases.TC001_AccountRegistrationTest -  *****Finished TC001_AccountRegistrationTest***** 
+12:12:06.580 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+12:12:06.590 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+12:12:06.591 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.592 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.592 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.592 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.593 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.593 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.597 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
+12:12:06.610 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 13 ms.
+12:12:06.611 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.611 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.612 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.612 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.612 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.612 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.613 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.613 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.614 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.614 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.617 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.617 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.617 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.617 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.619 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+12:12:06.619 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.621 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.621 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.621 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+12:12:06.621 [main] INFO  org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+12:12:06.630 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\LNV-106\AppData\Local\Temp\testng-eclipse-244468046\testng-customsuite.xml
+
+12:12:06.653 [main] INFO  org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 5 ms.
+12:12:06.861 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@4b629f13: 81 ms
+12:12:06.875 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@2d72f75e: 14 ms
+12:12:06.884 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@41beb473: 9 ms
+12:12:06.892 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@2e8ab815: 8 ms
+12:12:06.901 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@4fbdc0f0: 8 ms
+12:12:06.902 [main] INFO  org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@2ad3a1bb: 1 ms
+12:12:40.965 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\LNV-106\Desktop\MY_Workspace\Opencart\testng.xml
+
+12:12:45.142 [main] INFO  tests.RegistrationTest - *****Starting RegistrationTest*****
+12:12:45.268 [main] INFO  tests.RegistrationTest - Click on my account
+12:12:45.666 [main] INFO  tests.RegistrationTest - Click on register
+12:12:48.755 [main] INFO  tests.RegistrationTest - *****Finished RegistrationTest*****
+12:12:50.677 [main] INFO  tests.LoginTest - *****Starting LoginTest*****
+12:12:52.874 [main] INFO  tests.LoginTest - *****Finished LoginTest*****
+12:12:54.629 [main] INFO  tests.SearchProductTest - *****Starting SearchProductTest*****
+12:12:55.085 [main] INFO  tests.SearchProductTest - *****Ending SearchProductTest*****
+12:12:56.836 [main] INFO  tests.AddToCartTest - *****Starting AddToCartTest*****
+12:12:57.495 [main] INFO  tests.AddToCartTest - *****Ending AddToCartTest*****
+12:12:59.293 [main] INFO  tests.WishListTest - *****Starting WishListTest*****
+12:13:03.230 [main] INFO  tests.ShoppingCartTest - *****Starting ShoppingCartTest*****
+12:13:08.984 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+12:13:11.638 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****
+12:13:11.641 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+12:13:34.116 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****
+12:13:34.119 [main] INFO  tests.LoginDDTTest - *****Starting LoginDDTTest*****
+12:13:56.308 [main] INFO  tests.LoginDDTTest - *****Finished LoginDDTTest*****
