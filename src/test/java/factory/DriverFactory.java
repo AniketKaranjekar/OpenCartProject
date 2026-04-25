@@ -35,7 +35,6 @@ public class DriverFactory {
 
                     ChromeOptions options = new ChromeOptions();
 
-                    // Enable headless based on config
                     if (Boolean.parseBoolean(getProperty("headless"))) {
                         options.addArguments("--headless=new");
                         options.addArguments("--no-sandbox");
