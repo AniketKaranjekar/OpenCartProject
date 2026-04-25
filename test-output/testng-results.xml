@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-25T15:33:56 IST" name="Suite" finished-at="2026-04-25T15:34:54 IST" duration-ms="58351">
+  <suite started-at="2026-04-25T16:11:57 IST" name="Suite" finished-at="2026-04-25T16:12:30 IST" duration-ms="32774">
     <groups>
     </groups>
-    <test started-at="2026-04-25T15:33:56 IST" name="Opencart Tests" finished-at="2026-04-25T15:34:54 IST" duration-ms="58351">
+    <test started-at="2026-04-25T16:11:57 IST" name="Opencart Tests" finished-at="2026-04-25T16:12:30 IST" duration-ms="32774">
       <class name="tests.LoginTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T15:34:06 IST" name="setUp" finished-at="2026-04-25T15:34:09 IST" duration-ms="3258" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T16:12:03 IST" name="setUp" finished-at="2026-04-25T16:12:05 IST" duration-ms="2648" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,17 +18,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="login()[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T15:34:09 IST" name="login" finished-at="2026-04-25T15:34:12 IST" duration-ms="2485" status="PASS">
+        <test-method signature="login()[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T16:12:05 IST" name="login" finished-at="2026-04-25T16:12:08 IST" duration-ms="2934" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T15:34:12 IST" name="tearDown" finished-at="2026-04-25T15:34:12 IST" duration-ms="140" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@756cf158]" started-at="2026-04-25T16:12:08 IST" name="tearDown" finished-at="2026-04-25T16:12:08 IST" duration-ms="156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.LoginTest -->
       <class name="tests.WishListTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T15:34:21 IST" name="setUp" finished-at="2026-04-25T15:34:23 IST" duration-ms="1804" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T16:12:15 IST" name="setUp" finished-at="2026-04-25T16:12:17 IST" duration-ms="1848" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,58 +39,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="wishList()[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T15:34:23 IST" name="wishList" finished-at="2026-04-25T15:34:47 IST" duration-ms="24719" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Wishlist page not loaded. Heading:  expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Wishlist page not loaded. Heading:  expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at tests.WishListTest.wishList(WishListTest.java:62)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:744)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="wishList()[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T16:12:17 IST" name="wishList" finished-at="2026-04-25T16:12:23 IST" duration-ms="6513" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- wishList -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T15:34:47 IST" name="tearDown" finished-at="2026-04-25T15:34:48 IST" duration-ms="179" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.WishListTest@76c7beb3]" started-at="2026-04-25T16:12:23 IST" name="tearDown" finished-at="2026-04-25T16:12:23 IST" duration-ms="266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.WishListTest -->
       <class name="tests.AddToCartTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T15:34:14 IST" name="setUp" finished-at="2026-04-25T15:34:19 IST" duration-ms="4949" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T16:12:12 IST" name="setUp" finished-at="2026-04-25T16:12:14 IST" duration-ms="1680" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -101,17 +60,17 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="addToCart()[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T15:34:19 IST" name="addToCart" finished-at="2026-04-25T15:34:21 IST" duration-ms="1132" status="PASS">
+        <test-method signature="addToCart()[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T16:12:14 IST" name="addToCart" finished-at="2026-04-25T16:12:15 IST" duration-ms="967" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addToCart -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T15:34:21 IST" name="tearDown" finished-at="2026-04-25T15:34:21 IST" duration-ms="167" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AddToCartTest@751d3241]" started-at="2026-04-25T16:12:15 IST" name="tearDown" finished-at="2026-04-25T16:12:15 IST" duration-ms="172" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.AddToCartTest -->
       <class name="tests.ShoppingCartTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T15:34:48 IST" name="setUp" finished-at="2026-04-25T15:34:50 IST" duration-ms="2441" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T16:12:23 IST" name="setUp" finished-at="2026-04-25T16:12:26 IST" duration-ms="2445" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -122,17 +81,17 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="cart()[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T15:34:50 IST" name="cart" finished-at="2026-04-25T15:34:54 IST" duration-ms="4188" status="PASS">
+        <test-method signature="cart()[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T16:12:26 IST" name="cart" finished-at="2026-04-25T16:12:30 IST" duration-ms="3714" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cart -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T15:34:54 IST" name="tearDown" finished-at="2026-04-25T15:34:54 IST" duration-ms="150" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ShoppingCartTest@64337702]" started-at="2026-04-25T16:12:30 IST" name="tearDown" finished-at="2026-04-25T16:12:30 IST" duration-ms="159" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.ShoppingCartTest -->
       <class name="tests.SearchProductTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T15:34:12 IST" name="setUp" finished-at="2026-04-25T15:34:14 IST" duration-ms="1895" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T16:12:08 IST" name="setUp" finished-at="2026-04-25T16:12:11 IST" duration-ms="2720" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -143,17 +102,17 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="search()[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T15:34:14 IST" name="search" finished-at="2026-04-25T15:34:14 IST" duration-ms="701" status="PASS">
+        <test-method signature="search()[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T16:12:11 IST" name="search" finished-at="2026-04-25T16:12:12 IST" duration-ms="743" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- search -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T15:34:14 IST" name="tearDown" finished-at="2026-04-25T15:34:14 IST" duration-ms="132" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@3f2ef586]" started-at="2026-04-25T16:12:12 IST" name="tearDown" finished-at="2026-04-25T16:12:12 IST" duration-ms="156" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.SearchProductTest -->
       <class name="tests.RegistrationTest">
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T15:33:56 IST" name="setUp" finished-at="2026-04-25T15:34:01 IST" duration-ms="5254" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T16:11:57 IST" name="setUp" finished-at="2026-04-25T16:11:59 IST" duration-ms="1925" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -164,11 +123,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="accountRegister()[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T15:34:01 IST" name="accountRegister" finished-at="2026-04-25T15:34:06 IST" duration-ms="4250" status="PASS">
+        <test-method signature="accountRegister()[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T16:11:59 IST" name="accountRegister" finished-at="2026-04-25T16:12:02 IST" duration-ms="3371" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accountRegister -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T15:34:06 IST" name="tearDown" finished-at="2026-04-25T15:34:06 IST" duration-ms="184" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.RegistrationTest@1a1da881]" started-at="2026-04-25T16:12:02 IST" name="tearDown" finished-at="2026-04-25T16:12:03 IST" duration-ms="158" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

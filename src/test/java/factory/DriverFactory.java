@@ -31,7 +31,7 @@ public class DriverFactory {
 
                 ChromeOptions options = new ChromeOptions();
 
-                boolean isHeadless = Boolean.parseBoolean(getProperty("headless", "true"));
+                boolean isHeadless = Boolean.parseBoolean(getProperty("headed", "true"));
 
                 if (isHeadless) {
                     options.addArguments("--headless=new");

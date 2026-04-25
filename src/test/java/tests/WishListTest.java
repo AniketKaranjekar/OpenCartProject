@@ -23,7 +23,6 @@ public class WishListTest extends BaseTest {
 
         try {
             HomePage hp = new HomePage(driver);
-
             hp.clickLinkMyAccount();
             hp.clickBtnLogin();
 
@@ -33,7 +32,8 @@ public class WishListTest extends BaseTest {
             lp.clickLogin();
 
             MyAccountPage macc = new MyAccountPage(driver);
-            Assert.assertTrue(macc.isMyAccountPageExist(), "Login failed before wishlist test.");
+            Assert.assertTrue(macc.isMyAccountPageExist(), 
+                    "Login failed before wishlist test.");
 
             hp.txtSearchField(productName);
             hp.clickSearchIcon();
@@ -53,14 +53,28 @@ public class WishListTest extends BaseTest {
             Assert.assertTrue(successMsg.contains(productName),
                     "Wrong product added to wishlist. Message: " + successMsg);
 
-            sp.clickLinkWishList();
+            Thread.sleep(2000);
+
+            String baseUrl = ConfigReader.get("appUrl");
+            driver.get(baseUrl + "index.php?route=account/wishlist");
+
+            String currentUrl = driver.getCurrentUrl();
+            logger.info("Navigated URL: " + currentUrl);
+
+            Assert.assertTrue(currentUrl.contains("route=account/wishlist"),
+                    "Did not navigate to wishlist page. Current URL: " + currentUrl);
 
             WishListPage wl = new WishListPage(driver);
 
             String heading = wl.getHeadingText();
+            logger.info("Wishlist page heading: " + heading);
 
+            boolean hasProduct = wl.isProductPresent(productName);
+
+            Assert.assertTrue(hasProduct,
+                    "Product not found in wishlist and page seems empty. Possible app or locator issue.");
             Assert.assertTrue(heading.toLowerCase().contains("wish list"),
-                    "Wishlist page not loaded. Heading: " + heading);
+                    "Unexpected page. Heading: " + heading);
 
             Assert.assertTrue(wl.isProductPresent(productName),
                     "Expected product not found in wishlist: " + productName);

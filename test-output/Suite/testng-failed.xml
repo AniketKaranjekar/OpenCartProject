@@ -7,13 +7,13 @@
   <test thread-count="5" name="Opencart Tests(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="tests.WishListTest">
+      <class name="tests.ShoppingCartTest">
         <methods>
           <include name="setUp"/>
-          <include name="wishList"/>
           <include name="tearDown"/>
+          <include name="cart"/>
         </methods>
-      </class> <!-- tests.WishListTest -->
+      </class> <!-- tests.ShoppingCartTest -->
     </classes>
   </test> <!-- Opencart Tests(failed) -->
 </suite> <!-- Failed suite [Suite] -->

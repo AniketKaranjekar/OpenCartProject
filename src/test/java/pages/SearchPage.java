@@ -22,10 +22,10 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//button[@type='button']//i[@class='fa fa-heart']")
     private WebElement btnWishList;
 
-    @FindBy(xpath = "//span[normalize-space()='Shopping Cart']")
+    @FindBy(xpath = "//a[@title='Shopping Cart']")
     private WebElement linkShoppingCart;
 
-    @FindBy(xpath = "//span[normalize-space()='Wish List (1)']")
+    @FindBy(xpath = "//a[contains(@href,'route=account/wishlist')]")
     private WebElement linkWishList;
 
     @FindBy(css = "div.alert.alert-success")
@@ -60,12 +60,8 @@ public class SearchPage extends BasePage {
         }
     }
 
-    // ---------- actions ----------
-
     public void clickAddToCart() {
         safeClick(btnAddToCart);
-
-        // wait for success alert after click
         waitForVisible(alertSuccess);
     }
 
@@ -75,11 +71,13 @@ public class SearchPage extends BasePage {
     }
 
     public void clickShoppingCart() {
+	    waitVisible(linkShoppingCart, Duration.ofSeconds(10));
         safeClick(linkShoppingCart);
     }
 
     public void clickLinkWishList() {
-        safeClick(linkWishList);
+        waitVisible(linkWishList, Duration.ofSeconds(10));
+        linkWishList.click();
     }
 
     public String getHeadingText() {

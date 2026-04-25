@@ -16,7 +16,7 @@ public class WishListPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[@id='content']//h1")
+    @FindBy(css = "#content h1, #content h2")
     private WebElement heading;
 
     private WebDriverWait getWait() {
@@ -25,9 +25,14 @@ public class WishListPage extends BasePage {
 
     public String getHeadingText() {
         try {
-            return getWait()
-                    .until(ExpectedConditions.visibilityOf(heading))
-                    .getText();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+            wait.until(driver -> driver.getCurrentUrl().contains("route=account/wishlist"));
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("content")));
+
+            return heading.getText();
+
         } catch (Exception e) {
             return "";
         }

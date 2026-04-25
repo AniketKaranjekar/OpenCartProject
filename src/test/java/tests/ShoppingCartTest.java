@@ -49,8 +49,14 @@ public class ShoppingCartTest extends BaseTest {
 
             Assert.assertTrue(successMsg.contains(productName),
                     "Wrong product added to cart. Message: " + successMsg);
-
+            
             sp.clickShoppingCart();
+
+         String currentUrl = driver.getCurrentUrl();
+         logger.info("Current URL after cart click: " + currentUrl);
+
+         Assert.assertTrue(currentUrl.contains("route=checkout/cart"),
+                 "Did not navigate to cart page. URL: " + currentUrl);
 
             ShoppingCartPage cart = new ShoppingCartPage(driver);
 
