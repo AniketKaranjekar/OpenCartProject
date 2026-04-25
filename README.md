@@ -1,122 +1,161 @@
-## Opencart Automation Framework
+# Opencart Automation Framework
 
-This project is a **Java + Selenium + TestNG** automation framework for the Opencart (TutorialsNinja) demo site, organized for clean Page Object Model (POM) usage and easy interview explanation.
+## Overview
 
-### Tech stack
+This is a Java-based Selenium automation framework built using TestNG and Page Object Model for the OpenCart (TutorialsNinja) demo application.
 
-- **Language**: Java
-- **Test framework**: TestNG
-- **Automation**: Selenium WebDriver
-- **Build**: Maven
-- **Reporting**: ExtentReports
-- **Logging**: Log4j2
-- **Data‑driven**: TestNG `@DataProvider` (simple, no Excel)
+It is designed to handle real-world UI challenges like dynamic elements, synchronization issues, and CI execution.
 
-### Project structure
+---
 
-```text
+## Tech Stack
+
+* Language: Java
+* Automation: Selenium WebDriver (4.x)
+* Test Framework: TestNG
+* Build Tool: Maven
+* Reporting: ExtentReports
+* Logging: Log4j2
+* CI: GitHub Actions
+* Driver Management: WebDriverManager
+
+---
+
+## Project Structure
+
+```
 src/test/java
-│
-├── base
-│   └── BaseTest.java
-│
-├── factory
-│   └── DriverFactory.java
-│
-├── pages
-│   ├── BasePage.java
-│   ├── HomePage.java
-│   ├── LoginPage.java
-│   ├── MyAccountPage.java
-│   ├── RegistrationPage.java
-│   └── SearchPage.java
-│
-├── tests
-│   ├── RegistrationTest.java
-│   ├── LoginTest.java
-│   ├── SearchProductTest.java
-│   ├── AddToCartTest.java
-│   ├── WishListTest.java
-│   ├── ShoppingCartTest.java
-│   └── LoginDDTTest.java
-│
-├── utilities
-│   ├── ConfigReader.java
-│   ├── DataProviders.java
-│   ├── ScreenshotUtil.java
-│   └── ExtentReportManager.java
-│
-└── listeners
-    └── TestListener.java
+
+base
+ └── BaseTest.java
+
+factory
+ └── DriverFactory.java
+
+pages
+ ├── BasePage.java
+ ├── HomePage.java
+ ├── LoginPage.java
+ ├── MyAccountPage.java
+ ├── RegistrationPage.java
+ ├── SearchPage.java
+ ├── ShoppingCartPage.java
+ └── WishListPage.java
+
+tests
+ ├── RegistrationTest.java
+ ├── LoginTest.java
+ ├── SearchProductTest.java
+ ├── AddToCartTest.java
+ ├── WishListTest.java
+ ├── ShoppingCartTest.java
+
+utilities
+ ├── ConfigReader.java
+ ├── DataProviders.java
+ ├── ScreenshotUtil.java
+ └── ExtentReportManager.java
+
+listeners
+ └── TestListener.java
 ```
 
-`src/test/resources`
+## Core Design
 
-- `config.properties` – application URL, credentials, search product, etc.
-- `log4j2.xml` – logging configuration.
+### DriverFactory
 
-### Core concepts
+* Centralized WebDriver creation
+* Supports headless execution for CI
+* Uses ChromeOptions for Linux compatibility
+* Handles sandbox and memory issues
+* Reads configuration from config.properties
 
-- **DriverFactory**
-  - Central place for creating and managing WebDriver instances.
-  - Reads configuration from `config.properties` (browser, URL).
-  - Applies timeouts, window settings, and opens the base URL.
+### BaseTest
 
-- **BaseTest**
-  - Parent class for all tests.
-  - Initializes logger and gets the driver from `DriverFactory`.
-  - Provides random data helpers for registration tests.
+* Manages test lifecycle using TestNG annotations
+* Supports browser parameterization
+* Provides logging and random data generation
 
-- **Page Object Model**
-  - All UI interactions are encapsulated in `pages` classes.
-  - Each page exposes clear methods (e.g., `clickLinkMyAccount()`, `setEmail()`, `clickLogin()`).
-  - Tests stay readable and focused on business flows.
+### Page Object Model
 
-- **Utilities**
-  - `ConfigReader`: loads key/value pairs from `config.properties`.
-  - `DataProviders`: provides simple data‑driven inputs (no Excel).
-  - `ScreenshotUtil`: captures screenshots on failures.
-  - `ExtentReportManager`: configures ExtentReports and logs test status + screenshots.
+* Each page contains locators and actions
+* Synchronization handled inside page methods
+* Improves maintainability and readability
 
-- **Listeners**
-  - `TestListener` plugs `ExtentReportManager` into TestNG via `testng.xml`.
+### Synchronization Strategy
 
-### How to run tests
+* Uses explicit waits instead of Thread.sleep
+* Handles dynamic UI and async behavior
+* Improves test stability in CI
 
-1. **Pre‑requisites**
-   - JDK 8+ installed.
-   - Maven installed and on `PATH`.
-   - Browser drivers available on `PATH` (e.g., ChromeDriver, EdgeDriver) or managed by your WebDriver setup.
+### Test Design
 
-2. **Clone / open project**
+* Tests follow business flows
+* Focus on system behavior instead of UI text
+* Validate navigation using URL
+* Validate data presence instead of static UI
 
-```bash
-cd Opencart
+---
+
+## Utilities
+
+### ConfigReader
+
+* Reads data from config.properties
+* Avoids hardcoding
+
+### DataProviders
+
+* Provides data-driven testing using TestNG
+
+### ScreenshotUtil
+
+* Captures screenshots on failure
+
+### ExtentReportManager
+
+* Generates HTML reports
+* Logs execution details
+
+---
+
+## TestNG Listener
+
+* Integrates ExtentReports
+* Captures screenshots on failure
+* Logs test execution results
+
+---
+
+## Execution
+
+### Run via Maven
+
+```
+mvn clean test -DsuiteXmlFile=testng.xml -Dbrowser=chrome
 ```
 
-3. **Run via Maven**
+### Run in CI (GitHub Actions)
 
-```bash
-mvn test
-```
+* Runs on Ubuntu
+* Uses headless Chrome
+* Uploads reports as artifacts
 
-4. **Run via TestNG XML (IDE)**
+---
 
-- Open `testng.xml` and run it as a TestNG suite.
-- The suite runs all classes under `tests`:
-  - `RegistrationTest`, `LoginTest`, `SearchProductTest`, `AddToCartTest`, `WishListTest`, `ShoppingCartTest`, `LoginDDTTest`.
+## Reporting
 
-### Reports & logs
+* Extent Reports in /reports
+* Screenshots in /screenshots
+* Logs via Log4j2
 
-- **ExtentReports HTML report**: generated under the `reports` folder (file name includes timestamp).
-- **Screenshots**: saved under the `screenshots` folder and linked from the Extent report on failures.
-- **Logs**: written under the `logs` folder according to `log4j2.xml`.
+---
 
-### Good points to mention in interviews
+## Challenges Solved
 
-- Separation of concerns: `base` (test lifecycle), `factory` (driver), `pages` (POM), `tests` (scenarios), `utilities` (cross‑cutting).
-- Data‑driven login using TestNG `@DataProvider` + Excel.
-- Data‑driven login using TestNG `@DataProvider` (simple, interview‑friendly).
-- Centralized config and driver management for easy environment/browser changes.
-- Automatic reporting and screenshots through TestNG listeners and ExtentReports.
-
+* Chrome crash in CI fixed using headless configuration
+* Session creation issues resolved with proper ChromeOptions
+* TestNG parameter issues fixed using optional parameters
+* Element interaction issues solved with explicit waits
+* Navigation issues fixed using URL validation
+* Flaky tests stabilized with better synchronization
