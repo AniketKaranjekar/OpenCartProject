@@ -12,6 +12,7 @@ public class AddToCartTest extends BaseTest {
 
     @Test
     public void addToCart() throws Exception {
+
         logger.info("*****Starting AddToCartTest*****");
 
         ConfigReader.loadConfig();
@@ -23,18 +24,22 @@ public class AddToCartTest extends BaseTest {
             hp.clickSearchIcon();
 
             SearchPage sp = new SearchPage(driver);
-            sp.clickAddToCart();
+
+            sp.clickAddToCart(productName);
 
             String successMsg = sp.waitForSuccessAlertText();
+
             Assert.assertTrue(successMsg.toLowerCase().contains("success"),
-                    "Expected success message after adding to cart, but got: " + successMsg);
+                    "Expected success message but got: " + successMsg);
+
             Assert.assertTrue(successMsg.contains(productName),
-                    "Success message should contain product name '" + productName + "', but got: " + successMsg);
+                    "Expected product name in message but got: " + successMsg);
+
         } catch (Exception e) {
+            logger.error("Add to cart test failed", e);
             Assert.fail("Add to cart test failed due to exception: " + e.getMessage(), e);
         }
 
         logger.info("*****Ending AddToCartTest*****");
     }
 }
-

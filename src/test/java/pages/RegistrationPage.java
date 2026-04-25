@@ -2,9 +2,12 @@ package pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RegistrationPage extends BasePage {
 
@@ -12,25 +15,25 @@ public class RegistrationPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@id='input-firstname']")
+    @FindBy(id = "input-firstname")
     private WebElement txtFirstName;
 
-    @FindBy(xpath = "//input[@id='input-lastname']")
+    @FindBy(id = "input-lastname")
     private WebElement txtLastName;
 
-    @FindBy(xpath = "//input[@id='input-email']")
+    @FindBy(id = "input-email")
     private WebElement txtEmail;
 
-    @FindBy(xpath = "//input[@id='input-telephone']")
+    @FindBy(id = "input-telephone")
     private WebElement txtTelephone;
 
-    @FindBy(xpath = "//input[@id='input-password']")
+    @FindBy(id = "input-password")
     private WebElement txtPassword;
 
-    @FindBy(xpath = "//input[@id='input-confirm']")
+    @FindBy(id = "input-confirm")
     private WebElement txtConfirmPassword;
 
-    @FindBy(xpath = "//input[@name='agree']")
+    @FindBy(name = "agree")
     private WebElement chkPolicy;
 
     @FindBy(xpath = "//input[@value='Continue']")
@@ -39,45 +42,79 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//h1[normalize-space()='Your Account Has Been Created!']")
     private WebElement msgConfirmation;
 
+
+    private WebElement waitForVisible(WebElement element) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    private WebElement waitForClickable(WebElement element) {
+        return new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    private void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    private void safeSendKeys(WebElement element, String value) {
+        WebElement el = waitForVisible(element);
+        el.clear();
+        el.sendKeys(value);
+    }
+
+    private void safeClick(WebElement element) {
+        WebElement el = waitForClickable(element);
+        scrollToElement(el);
+        try {
+            el.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].click();", el);
+        }
+    }
+
+
     public void setFirstName(String fName) {
-        txtFirstName.sendKeys(fName);
+        safeSendKeys(txtFirstName, fName);
     }
 
     public void setLatName(String lName) {
-        txtLastName.sendKeys(lName);
+        safeSendKeys(txtLastName, lName);
     }
 
     public void setEmail(String email) {
-        txtEmail.sendKeys(email);
+        safeSendKeys(txtEmail, email);
     }
 
     public void setTelephone(String tNo) {
-        txtTelephone.sendKeys(tNo);
+        safeSendKeys(txtTelephone, tNo);
     }
 
     public void setPassword(String pwd) {
-        txtPassword.sendKeys(pwd);
+        safeSendKeys(txtPassword, pwd);
     }
 
     public void setConfirmPassword(String confirmpwd) {
-        txtConfirmPassword.sendKeys(confirmpwd);
+        safeSendKeys(txtConfirmPassword, confirmpwd);
     }
 
     public void setChkBox() {
-        chkPolicy.click();
+        safeClick(chkPolicy);
     }
 
     public void clickbthContinue() {
-        btnContinue.click();
+        safeClick(btnContinue);
     }
 
     public String getConfirmationMsg() {
         try {
-            waitVisible(msgConfirmation, Duration.ofSeconds(10));
-            return msgConfirmation.getText();
+            WebElement el = new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOf(msgConfirmation));
+            return el.getText();
         } catch (Exception e) {
             return e.getMessage();
         }
     }
 }
-

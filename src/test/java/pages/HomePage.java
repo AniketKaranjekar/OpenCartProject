@@ -1,8 +1,13 @@
 package pages;
 
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends BasePage {
 
@@ -25,25 +30,46 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//button[@class='btn btn-default btn-lg']")
     private WebElement searchIcon;
 
-    public void clickLinkMyAccount()
-    {
-        linkMyAccount.click();
+    private WebElement waitForElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    private WebElement waitForClickable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    private void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void clickLinkMyAccount() {
+        WebElement element = waitForClickable(linkMyAccount);
+        scrollToElement(element);
+        element.click();
     }
 
     public void clickLinkRegister() {
-        linkRegister.click();
+        WebElement element = waitForClickable(linkRegister);
+        scrollToElement(element);
+        element.click();
     }
 
     public void clickBtnLogin() {
-        linkLogin.click();
+        WebElement element = waitForClickable(linkLogin);
+        scrollToElement(element);
+        element.click();
     }
 
     public void txtSearchField(String productName) {
-        searchField.sendKeys(productName);
+        WebElement element = waitForElement(searchField);
+        element.clear();
+        element.sendKeys(productName);
     }
 
     public void clickSearchIcon() {
-        searchIcon.click();
+        WebElement element = waitForClickable(searchIcon);
+        element.click();
     }
 }
-

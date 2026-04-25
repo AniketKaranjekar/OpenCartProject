@@ -8,13 +8,10 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverFactory {
 
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     private static Properties properties;
 
     public static void initConfig() throws IOException {
@@ -28,69 +25,49 @@ public class DriverFactory {
     public static WebDriver initDriver(String browser) throws IOException {
         initConfig();
 
-        if (driver == null) {
+        if (tlDriver.get() == null) {
 
-            switch (browser.toLowerCase()) {
+            if (browser.equalsIgnoreCase("chrome")) {
 
-                case "chrome":
+                ChromeOptions options = new ChromeOptions();
 
-                    WebDriverManager.chromedriver().setup();
+                boolean isHeadless = Boolean.parseBoolean(getProperty("headless", "true"));
 
-                    ChromeOptions options = new ChromeOptions();
+                if (isHeadless) {
+                    options.addArguments("--headless=new");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--window-size=1920,1080");
+                }
 
-                    String headlessValue = getProperty("headless", "true");
-                    boolean isHeadless = headlessValue == null || headlessValue.isEmpty()
-                            || Boolean.parseBoolean(headlessValue);
+                tlDriver.set(new ChromeDriver(options));
 
-                    if (isHeadless) {
-                        options.addArguments("--headless=new");
-                        options.addArguments("--no-sandbox");
-                        options.addArguments("--disable-dev-shm-usage");
-                        options.addArguments("--disable-gpu");
-                        options.addArguments("--window-size=1920,1080");
-                    }
-
-                    System.out.println("Launching Chrome | Headless: " + isHeadless);
-
-                    driver = new ChromeDriver(options);
-                    break;
-
-                case "edge":
-
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
-                    break;
-
-                default:
-                    throw new IllegalArgumentException("Unsupported browser: " + browser);
+            } else {
+                throw new IllegalArgumentException("Only Chrome is supported");
             }
 
-            driver.manage().deleteAllCookies();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            driver.manage().window().maximize();
+            getDriver().manage().deleteAllCookies();
+            getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             String url = getProperty("appUrl", "https://demo.opencart.com/");
             System.out.println("Navigating to: " + url);
-            driver.get(url);
+            getDriver().get(url);
         }
 
-        return driver;
+        return getDriver();
     }
 
-    // Get driver
     public static WebDriver getDriver() {
-        return driver;
+        return tlDriver.get();
     }
 
-    // Quit driver
     public static void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
+        if (tlDriver.get() != null) {
+            tlDriver.get().quit();
+            tlDriver.remove();
         }
     }
 
-    // Get property with default
     public static String getProperty(String key, String defaultValue) {
         if (properties == null) {
             throw new IllegalStateException("Config properties not initialized");
@@ -98,7 +75,6 @@ public class DriverFactory {
         return properties.getProperty(key, defaultValue);
     }
 
-    // Overloaded method (important)
     public static String getProperty(String key) {
         return getProperty(key, null);
     }

@@ -13,6 +13,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void login() throws Exception {
+
         logger.info("*****Starting LoginTest*****");
 
         ConfigReader.loadConfig();
@@ -28,13 +29,20 @@ public class LoginTest extends BaseTest {
             lp.clickLogin();
 
             MyAccountPage macc = new MyAccountPage(driver);
-            boolean targetPage = macc.isMyAccountPageExist();
-            Assert.assertTrue(targetPage, "My Account page should be displayed after login.");
+
+            boolean isLoggedIn = macc.isMyAccountPageExist();
+
+            if (!isLoggedIn) {
+                logger.error("Login failed. My Account page not displayed.");
+            }
+
+            Assert.assertTrue(isLoggedIn, "Login failed: My Account page not displayed.");
+
         } catch (Exception e) {
+            logger.error("Exception during login test", e);
             Assert.fail("Login test failed due to exception: " + e.getMessage(), e);
         }
 
         logger.info("*****Finished LoginTest*****");
     }
 }
-

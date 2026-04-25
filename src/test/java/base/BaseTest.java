@@ -15,14 +15,17 @@ import factory.DriverFactory;
 
 public class BaseTest {
 
-    protected static WebDriver driver;
+    protected WebDriver driver;
     protected Logger logger;
 
     @BeforeClass
     @Parameters({ "browser" })
     public void setUp(@Optional("chrome") String browser) throws IOException {
+
         logger = LogManager.getLogger(this.getClass());
-        driver = DriverFactory.initDriver(browser);
+
+        DriverFactory.initDriver(browser);
+        driver = DriverFactory.getDriver();
     }
 
     @AfterClass
@@ -42,4 +45,3 @@ public class BaseTest {
         return RandomStringUtils.randomAlphanumeric(5);
     }
 }
-
