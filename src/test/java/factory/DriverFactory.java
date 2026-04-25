@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class DriverFactory {
 
     private static WebDriver driver;
@@ -28,24 +29,34 @@ public class DriverFactory {
         initConfig();
 
         if (driver == null) {
+
             switch (browser.toLowerCase()) {
 
                 case "chrome":
+
                     WebDriverManager.chromedriver().setup();
 
                     ChromeOptions options = new ChromeOptions();
 
-                    if (Boolean.parseBoolean(getProperty("headless"))) {
+                    String headlessValue = getProperty("headless", "true");
+                    boolean isHeadless = headlessValue == null || headlessValue.isEmpty()
+                            || Boolean.parseBoolean(headlessValue);
+
+                    if (isHeadless) {
                         options.addArguments("--headless=new");
                         options.addArguments("--no-sandbox");
                         options.addArguments("--disable-dev-shm-usage");
                         options.addArguments("--disable-gpu");
+                        options.addArguments("--window-size=1920,1080");
                     }
+
+                    System.out.println("Launching Chrome | Headless: " + isHeadless);
 
                     driver = new ChromeDriver(options);
                     break;
 
                 case "edge":
+
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
@@ -57,16 +68,21 @@ public class DriverFactory {
             driver.manage().deleteAllCookies();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().window().maximize();
-            driver.get(getProperty("appUrl"));
+
+            String url = getProperty("appUrl", "https://demo.opencart.com/");
+            System.out.println("Navigating to: " + url);
+            driver.get(url);
         }
 
         return driver;
     }
 
+    // Get driver
     public static WebDriver getDriver() {
         return driver;
     }
 
+    // Quit driver
     public static void quitDriver() {
         if (driver != null) {
             driver.quit();
@@ -74,10 +90,16 @@ public class DriverFactory {
         }
     }
 
-    public static String getProperty(String key) {
+    // Get property with default
+    public static String getProperty(String key, String defaultValue) {
         if (properties == null) {
             throw new IllegalStateException("Config properties not initialized");
         }
-        return properties.getProperty(key);
+        return properties.getProperty(key, defaultValue);
+    }
+
+    // Overloaded method (important)
+    public static String getProperty(String key) {
+        return getProperty(key, null);
     }
 }

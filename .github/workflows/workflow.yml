@@ -27,8 +27,14 @@ jobs:
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v2
 
+      - name: Verify Setup
+        run: |
+          java -version
+          mvn -version
+          google-chrome --version
+
       - name: Run Tests
-        run: mvn clean test -DsuiteXmlFile=testng.xml
+        run: mvn clean test -DsuiteXmlFile=testng.xml -Dbrowser=chrome -Dheadless=true
 
       - name: Upload Reports
         if: always()
