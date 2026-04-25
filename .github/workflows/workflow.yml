@@ -1,34 +1,53 @@
-name: Opencart Tests
+name: Opencart Automation Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["master"]
 
 jobs:
   selenium-tests:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome]
+
     steps:
-name: Checkout Code
-      uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-name: Set up Maven
-      run: mvn -version
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
 
-name: Run TestNG Suite
-      run: mvn clean test -DsuiteXmlFile=testng.xml
+      - name: Verify Tools
+        run: |
+          java -version
+          mvn -version
+          google-chrome --version
 
-name: Upload TestNG Reports
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: TestNG-Reports
-        path: target/surefire-reports
+      - name: Run TestNG Suite
+        run: mvn clean test -DsuiteXmlFile=testng.xml -Dbrowser=${{ matrix.browser }}
+
+      - name: Archive Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestNG-Reports-${{ matrix.browser }}
+          path: target/surefire-reports
+
+      - name: Archive Screenshots (if any)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Screenshots-${{ matrix.browser }}
+          path: screenshots/
