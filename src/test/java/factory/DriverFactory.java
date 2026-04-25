@@ -7,8 +7,10 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 
     private static WebDriver driver;
@@ -27,12 +29,28 @@ public class DriverFactory {
 
         if (driver == null) {
             switch (browser.toLowerCase()) {
+
                 case "chrome":
-                    driver = new ChromeDriver();
+                    WebDriverManager.chromedriver().setup();
+
+                    ChromeOptions options = new ChromeOptions();
+
+                    // Enable headless based on config
+                    if (Boolean.parseBoolean(getProperty("headless"))) {
+                        options.addArguments("--headless=new");
+                        options.addArguments("--no-sandbox");
+                        options.addArguments("--disable-dev-shm-usage");
+                        options.addArguments("--disable-gpu");
+                    }
+
+                    driver = new ChromeDriver(options);
                     break;
+
                 case "edge":
+                    WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
+
                 default:
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
